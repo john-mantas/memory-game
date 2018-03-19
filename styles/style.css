@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ========== Header Section ========== */
+
+header {
+    margin: 1em auto;
+    font-family: sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* ========== Main container ========== */
+
+.container {
+    max-width: 43em;
+    margin: auto;
+}
+
+/* ========== Info Section ========== */
+
+.info-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+    width: 100%;
+    margin: 2em auto 1em;
+}
+
+.stars {
+    text-align: left;
+}
+
+.moves-counter,
+.timer {
+    font-size: 1.3em;
+}
+
+.restart {
+    text-align: right;
+    cursor: pointer;
+}
+
+/* ========== Deck ========== */
+
+.deck {
+    display: grid;
+    grid-gap: 2%;
+    width: 100%;
+    height: 80vh;
+    margin: auto;
+    padding: 1em;
+    border: thin solid black;
+}
+
+.deck--4x4 {
+    grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+}
+
+/* ========== Cards ========== */
+
+.card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    perspective: 850px;
+    cursor: pointer;
+}
+
+.card__front,
+.card__back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    transition: all 0.5s;
+}
+
+.card__front {
+    display: flex;
+    justify-content: center;
+    background-color: deepskyblue;
+    transform: rotateX(180deg);
+}
+
+.card__front i {
+    align-self: center;
+    font-size: 5em;
+    color: white;
+    pointer-events: none;
+}
+
+.open .card__front {
+    transform: rotateX(360deg);
+}
+
+.card__back {
+    background-color: cadetblue;
+}
+
+.open .card__back {
+    transform: rotateX(180deg); 
+}
+
+.match {
+    background-color: green;
+}
+
+.wrong {
+    background-color: firebrick;
+}
