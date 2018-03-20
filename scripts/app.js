@@ -1,7 +1,9 @@
 let fragment = document.createDocumentFragment();
 const restartBtn = document.getElementById('restart');
 const deck = document.getElementById('deck');
+const movesCounter = document.getElementById('moves_counter');
 let openCurrent = [];
+let move = 0;
 
 // Initializing cards array with transportation icons
 // cards = [car, motorcycle, boat, airplane, walk, truck, subway, tram]
@@ -71,11 +73,13 @@ function matchCards() {
         theyMatch = true;
         correctMatch();
         openCurrent = [];
+        move++;
         console.log(theyMatch);
     } else {
         theyMatch = false;
         wrongMatch();
         openCurrent = [];
+        move++;
         console.log(theyMatch);
     }
     return theyMatch;
@@ -100,13 +104,21 @@ function wrongMatch() {
     }
 };
 
+//Moves Counter
+function movesCount() {
+    movesCounter.textContent = move;
+};
+
 //*** HELPERS - Possibly will change !!!
 deck.addEventListener('click', function(event) {
     let card = event.target.parentNode;
     
     flipCard(card);
     openedCards(card);
-    matchCards();
+    if (openCurrent.length === 2) {
+        matchCards();
+        movesCount();
+    };
     console.log(openCurrent);
 });
 
