@@ -27,7 +27,8 @@ function createDeck(cards) {
     for (let i=0;i<cardCollection.length;i++){
         let cardDiv = document.createElement('DIV');
         cardDiv.classList.add('card');
-        cardDiv.dataset.id = i;
+        cardDiv.setAttribute('id', i);
+        cardDiv.dataset.card = cardCollection[i];
         fragment.appendChild(cardDiv);
         let frontDiv = document.createElement('DIV');
         frontDiv.classList.add('card__front');
@@ -52,11 +53,29 @@ function flipCard(card) {
 
 //Adding which cards are open
 function openedCards(card) {
-    if(card.classList.contains('open')){
-    openCurrent.push(card.dataset.id);
-    }
+    let cardSum = {
+        id: 0,
+        content: '0'
+    };
+    if (card.classList.contains('open') && openCurrent.length<2){
+        cardSum.id = card.id;
+        cardSum.content = card.dataset.card;
+        openCurrent.push(cardSum);
+    } 
 };
 
+//Check for matching cards
+function matchCards() {
+    let theyMatch = false;
+    if (openCurrent[0].content === openCurrent[1].content) {
+        theyMatch = true;
+        console.log(theyMatch);
+    } else {
+        theyMatch = false;
+        console.log(theyMatch);
+    }
+    return theyMatch;
+};
 
 //*** HELPERS - Possibly will change !!!
 deck.addEventListener('click', function(event) {
