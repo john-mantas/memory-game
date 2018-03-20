@@ -1,6 +1,7 @@
 let fragment = document.createDocumentFragment();
 const restartBtn = document.getElementById('restart');
 const deck = document.getElementById('deck');
+let openCurrent = [];
 
 // Initializing cards array with transportation icons
 // cards = [car, motorcycle, boat, airplane, walk, truck, subway, tram]
@@ -26,6 +27,7 @@ function createDeck(cards) {
     for (let i=0;i<cardCollection.length;i++){
         let cardDiv = document.createElement('DIV');
         cardDiv.classList.add('card');
+        cardDiv.dataset.id = i;
         fragment.appendChild(cardDiv);
         let frontDiv = document.createElement('DIV');
         frontDiv.classList.add('card__front');
@@ -41,12 +43,28 @@ function createDeck(cards) {
     deck.appendChild(fragment);
 }
 
+//Flip the card
+function flipCard(card) {
+    if (card.classList.contains('card')) {
+        card.classList.toggle('open');
+    };
+};
+
+//Adding which cards are open
+function openedCards(card) {
+    if(card.classList.contains('open')){
+    openCurrent.push(card.dataset.id);
+    }
+};
+
 
 //*** HELPERS - Possibly will change !!!
 deck.addEventListener('click', function(event) {
-    if (event.target.parentNode.classList.contains('card')) {
-        event.target.parentNode.classList.toggle('open');
-    };
+    let card = event.target.parentNode;
+    
+    flipCard(card);
+    openedCards(card);
+    console.log(openCurrent);
 });
 
 restartBtn.addEventListener('click', function() {
