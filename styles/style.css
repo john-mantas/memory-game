@@ -101,7 +101,8 @@ header {
     pointer-events: none;
 }
 
-.open .card__front {
+.open .card__front,
+.match .card__front {
     transform: rotateX(360deg);
 }
 
@@ -109,14 +110,15 @@ header {
     background-color: cadetblue;
 }
 
-.open .card__back {
+.open .card__back,
+.match .card__back {
     transform: rotateX(180deg); 
 }
 
-.match {
+.match .card__front {
     background-color: green;
 }
 
-.wrong {
+.wrong .card__front {
     background-color: firebrick;
 }

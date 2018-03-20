@@ -69,12 +69,35 @@ function matchCards() {
     let theyMatch = false;
     if (openCurrent[0].content === openCurrent[1].content) {
         theyMatch = true;
+        correctMatch();
+        openCurrent = [];
         console.log(theyMatch);
     } else {
         theyMatch = false;
+        wrongMatch();
+        openCurrent = [];
         console.log(theyMatch);
     }
     return theyMatch;
+};
+
+//When the cards are matching
+function correctMatch() {
+    for (let i=0;i<openCurrent.length;i++) {
+        document.getElementById(openCurrent[i].id).classList.add('match');
+    }
+};
+
+//When the cards don't match
+function wrongMatch() {
+    for (let i=0;i<openCurrent.length;i++) {
+        let wrongCard = document.getElementById(openCurrent[i].id);
+        wrongCard.classList.add('wrong');
+        window.setTimeout(function(){
+            flipCard(wrongCard);
+            wrongCard.classList.remove('wrong');
+        },700);
+    }
 };
 
 //*** HELPERS - Possibly will change !!!
@@ -83,6 +106,7 @@ deck.addEventListener('click', function(event) {
     
     flipCard(card);
     openedCards(card);
+    matchCards();
     console.log(openCurrent);
 });
 
