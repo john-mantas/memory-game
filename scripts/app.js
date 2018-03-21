@@ -2,8 +2,10 @@ let fragment = document.createDocumentFragment();
 const restartBtn = document.getElementById('restart');
 const deck = document.getElementById('deck');
 const movesCounter = document.getElementById('moves_counter');
+const starsCounter = document.getElementById('stars_rating');
 let openCurrent = [];
 let move = 0,
+    stars = 0,
     pairs = 0;
 
 // Initializing cards array with transportation icons
@@ -111,10 +113,27 @@ function movesCount() {
     movesCounter.textContent = move;
 };
 
+//Star rating
+function starRating() {
+    if (move >= 50) {
+        starsCounter.firstElementChild.innerHTML = '&#xE83A;';
+        stars =0;
+    } else if (move >= 26) {
+        starsCounter.firstElementChild.nextElementSibling.innerHTML = '&#xE83A;';
+        stars =1;
+    } else if (move >= 16) {
+        starsCounter.lastElementChild.innerHTML = '&#xE83A;';
+        stars =2;
+    } else {
+        stars = 3;
+    }
+};
+
 //Check how many pairs are made
 function pairsCheck() {
     if (pairs === (cards.length/2)){
         document.getElementById('complete_moves').textContent = move;
+        document.getElementById('complete_stars').textContent = stars;
         toggleScreen('screen_complete', 'is-open');
     }
 }
@@ -129,12 +148,13 @@ function toggleScreen(screenId, isClass) {
 //*** HELPERS - Possibly will change !!!
 deck.addEventListener('click', function(event) {
     let card = event.target.parentNode;
-    
+
     flipCard(card);
     openedCards(card);
     if (openCurrent.length === 2) {
         matchCards();
         movesCount();
+        starRating();
         pairsCheck();
     };
     console.log(openCurrent);
