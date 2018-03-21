@@ -122,3 +122,20 @@ header {
 .wrong .card__front {
     background-color: firebrick;
 }
+
+/* ========== Complete Screen ========== */
+
+.screen-complete {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background-color: darkseagreen;
+    color: darkslategray;
+}
+
+.screen-complete.is-open {
+    display: block;
+}
