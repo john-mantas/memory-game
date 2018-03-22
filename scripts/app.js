@@ -3,10 +3,15 @@ const restartBtn = document.getElementById('restart');
 const deck = document.getElementById('deck');
 const movesCounter = document.getElementById('moves_counter');
 const starsCounter = document.getElementById('stars_rating');
+const timerSeconds = document.getElementById('timer_seconds');
+const timerMinutes = document.getElementById('timer_minutes');
 let openCurrent = [];
 let move = 0,
     stars = 0,
-    pairs = 0;
+    pairs = 0,
+    timer =0,
+    seconds = 0,
+    minutes = 0;
 
 // Initializing cards array with transportation icons
 // cards = [car, motorcycle, boat, airplane, walk, truck, subway, tram]
@@ -47,6 +52,7 @@ function createDeck(cards) {
         frontDiv.appendChild(iconDiv);
     }
     deck.appendChild(fragment);
+    startTimer();
 }
 
 //Flip the card
@@ -134,9 +140,29 @@ function pairsCheck() {
     if (pairs === (cards.length/2)){
         document.getElementById('complete_moves').textContent = move;
         document.getElementById('complete_stars').textContent = stars;
+        document.getElementById('complete_time').textContent = `${minutes}':${seconds}"`;
         toggleScreen('screen_complete', 'is-open');
+        stopTimer();
+        console.log(`${minutes}:${seconds}`);
     }
 }
+
+//Timer
+function clock(){
+    if (seconds > 59) {
+        seconds = 0;
+        minutes>=9?timerMinutes.textContent = ++minutes:timerMinutes.textContent = `0${++minutes}`;
+    }
+    seconds>9?timerSeconds.textContent = seconds++:timerSeconds.textContent = `0${seconds++}`;
+};
+
+function startTimer() {
+    timer = window.setInterval(clock, 1000);
+};
+
+function stopTimer() {
+    clearInterval(timer);
+};
 
 //Display/hide a full screen
 function toggleScreen(screenId, isClass) {
