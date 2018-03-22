@@ -115,8 +115,8 @@ function wrongMatch() {
 };
 
 //Moves Counter
-function movesCount() {
-    movesCounter.textContent = move;
+function movesCount(m) {
+    movesCounter.textContent = m;
 };
 
 //Star rating
@@ -171,6 +171,22 @@ function toggleScreen(screenId, isClass) {
     },1000);
 }
 
+//Initialize everything and make a new game
+function newGame() {
+    stopTimer();
+    openCurrent = [];
+    move = 0;
+    stars = 0;
+    pairs = 0;
+    timer = 0;
+    seconds = 0;
+    minutes = 0;
+    timerSeconds.textContent = '00';
+    timerMinutes.textContent = '00';
+    movesCount(0);
+    createDeck(cards);
+};
+
 //*** HELPERS - Possibly will change !!!
 deck.addEventListener('click', function(event) {
     let card = event.target.parentNode;
@@ -179,7 +195,7 @@ deck.addEventListener('click', function(event) {
     openedCards(card);
     if (openCurrent.length === 2) {
         matchCards();
-        movesCount();
+        movesCount(move);
         starRating();
         pairsCheck();
     };
