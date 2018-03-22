@@ -1,6 +1,7 @@
 let fragment = document.createDocumentFragment();
 const restartBtn = document.getElementById('restart');
 const deck = document.getElementById('deck');
+const newGameCom = document.getElementById('complete_new_game');
 const movesCounter = document.getElementById('moves_counter');
 const starsCounter = document.getElementById('stars_rating');
 const timerSeconds = document.getElementById('timer_seconds');
@@ -187,6 +188,16 @@ function newGame() {
     createDeck(cards);
 };
 
+//Buttons event listeners
+restartBtn.addEventListener('click', function() {
+    newGame();
+});
+
+newGameCom.addEventListener('click', function() {
+    toggleScreen('screen_complete', 'is-open');
+    newGame();
+});
+
 //*** HELPERS - Possibly will change !!!
 deck.addEventListener('click', function(event) {
     let card = event.target.parentNode;
@@ -200,10 +211,6 @@ deck.addEventListener('click', function(event) {
         pairsCheck();
     };
     console.log(openCurrent);
-});
-
-restartBtn.addEventListener('click', function() {
-    createDeck(cards);
 });
 
 document.onload = createDeck(cards);
