@@ -136,6 +136,13 @@ function starRating() {
     }
 };
 
+function restartStars() {
+    let starItems = starsCounter.children;
+    for (let i = 0; i < starItems.length; i++) {
+        starItems[i].innerHTML = '&#xE838;';
+    };
+};
+
 //Check how many pairs are made
 function pairsCheck() {
     if (pairs === (cards.length/2)){
@@ -178,6 +185,7 @@ function newGame() {
     openCurrent = [];
     move = 0;
     stars = 0;
+    restartStars();
     pairs = 0;
     timer = 0;
     seconds = 0;
