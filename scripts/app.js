@@ -209,16 +209,19 @@ newGameCom.addEventListener('click', function() {
 //*** HELPERS - Possibly will change !!!
 deck.addEventListener('click', function(event) {
     let card = event.target.parentNode;
-
-    flipCard(card);
-    openedCards(card);
-    if (openCurrent.length === 2) {
-        matchCards();
-        movesCount(move);
-        starRating();
-        pairsCheck();
+    if (!card.classList.contains('open')) {
+        if (!card.classList.contains('match')) {
+            flipCard(card);
+            openedCards(card);
+            if (openCurrent.length === 2) {
+                matchCards();
+                movesCount(move);
+                starRating();
+                pairsCheck();
+            };
+            console.log(openCurrent);
+        };
     };
-    console.log(openCurrent);
 });
 
 document.onload = createDeck(cards);
