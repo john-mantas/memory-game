@@ -10,6 +10,35 @@ body {
     font-family: sans-serif;
 }
 
+button {
+    background: none;
+    border: none;
+    color: inherit;
+}
+
+/* ========== UI Components ========== */
+/* ----- Buttons ----- */
+.button--primary {
+    display: inline;
+    padding: 10px 30px;
+    font-size: 1.6em;
+    font-family: Orbitron;
+    letter-spacing: 1.2px;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 7px;
+    text-shadow: 2px 3px 9px #1c1c1c;
+    cursor: pointer;
+}
+
+.button--primary:hover {
+    padding: 10px 15px;
+    border-radius: 21px;
+}
+
+.button--primary:active {
+    transform: scale(0.965);
+}
+
 /* ========== Start Screen Section ========== */
 .start-screen {
     display: flex;
