@@ -1,4 +1,5 @@
 let fragment = document.createDocumentFragment();
+const newGameStart = document.getElementById('start_new_game');
 const restartBtn = document.getElementById('restart');
 const deck = document.getElementById('deck');
 const newGameCom = document.getElementById('complete_new_game');
@@ -197,6 +198,11 @@ function newGame() {
 };
 
 //Buttons event listeners
+newGameStart.addEventListener('click', function() {
+    toggleScreen('screen_start', 'is-hidden');
+    newGame();
+});
+
 restartBtn.addEventListener('click', function() {
     newGame();
 });
@@ -223,5 +229,3 @@ deck.addEventListener('click', function(event) {
         };
     };
 });
-
-document.onload = createDeck(cards);

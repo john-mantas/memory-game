@@ -1,20 +1,43 @@
 * {
     box-sizing: border-box;
+    transition: 0.1s;
+    outline: none;
 }
-
 
 body {
     max-width: 1200px;
     margin: auto;
+    font-family: sans-serif;
 }
 
-/* ========== Header Section ========== */
-
-header {
-    margin: 1em auto;
-    font-family: sans-serif;
+/* ========== Start Screen Section ========== */
+.start-screen {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    background: linear-gradient(45deg, #2b5876, #4e4376);
+    color: #fafafa;
     text-align: center;
-    text-transform: uppercase;
+}
+
+.is-hidden {
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+}
+
+.start-screen__content {
+    display: inline-block;
+    margin: auto;
+}
+
+.content__header {
+    margin-bottom: 55px;
+    font-family: "Montserrat Subrayada";
+    font-size: 4em;
 }
 
 /* ========== Main container ========== */
