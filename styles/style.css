@@ -64,6 +64,15 @@ button {
     }
 }
 
+/* ----- Wrong card match ----- */
+@keyframes wrong-match {
+    16.6%, 49.9% {
+        transform: translateX(5px);
+    }
+    33.3%, 66.5% {
+        transform: translateX(-5px);
+    }
+}
 /* ========== Start Screen Section ========== */
 .start-screen {
     display: flex;
@@ -212,6 +221,8 @@ button {
 
 .wrong .card__front {
     background-color: #c63544;
+    animation: wrong-match 0.3s;
+    animation-delay: 0.3s;
 }
 
 /* ========== Complete Screen ========== */
