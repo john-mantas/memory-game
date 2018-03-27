@@ -50,6 +50,20 @@ button {
     background-color: rgba(255,255,255,0.1);
 }
 
+/* ========== Animations ========== */
+/* ----- Correct card match ----- */
+@keyframes correct-match {
+    33% {
+        transform: scale(1.05) rotateZ(5deg);
+    }
+    66% {
+        transform: scale(1.05) rotateZ(-5deg);
+    }
+    100% {
+        transform: scale(0.9);
+    }
+}
+
 /* ========== Start Screen Section ========== */
 .start-screen {
     display: flex;
@@ -192,6 +206,8 @@ button {
 
 .match .card__front {
     background-color: #5db166;
+    animation: correct-match 0.5s forwards;
+    animation-delay: 0.3s;
 }
 
 .wrong .card__front {
