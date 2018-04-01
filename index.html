@@ -12,7 +12,7 @@
 
     <body>
 
-        <header class="start-screen" id="screen_start">
+        <header class="start-screen is-hidden" id="screen_start">
             <div class="start-screen__content">
                 <h1 class="content__header">MEMORY GAME</h1>
                 <button class="button--primary" id="start_new_game">START GAME</button>
@@ -35,12 +35,35 @@
                 </div>
             </aside>
             <div class="deck deck--4x4" id="deck">
-                
+
             </div>
-            <section class="screen-complete" id="screen_complete">
-                <p>Hooray! You won!</p>
-                <p>You made <span id="complete_moves">0</span> moves in <span id="complete_time">00:00</span> and won <span id="complete_stars">0</span> stars</p>
-                <button id="complete_new_game">New game</button>
+            <section class="screen-complete is-open" id="screen_complete">
+                <div class="screen-complete__body">
+                    <div class="screen-complete__header">
+                        <div class="screen-complete__stars" id="complete_stars">
+                            <i class="material-icons">&#xE838;</i>
+                            <i class="material-icons">&#xE838;</i>
+                            <i class="material-icons">&#xE83A;</i>
+                        </div>
+                        <h1>HOORAY! YOU WON!</h1>
+                    </div>
+                    <ul class="screen-complete__stats">
+                        <h3 class="stats__header">Your stats...</h3>
+                        <li class="stats__item">
+                            <span class="stats__title">Moves: </span><span class="stats__value" id="complete_moves">0</span>
+                        </li>
+                        <li class="stats__item">
+                            <span class="stats__title">Time: </span><span class="stats__value" id="complete_time">00:00</span>
+                        </li>
+                        <li class="stats__item">
+                            <span class="stats__title">Stars: </span><span class="stats__value" id="complete_stars">0</span>
+                        </li>
+                    </ul>
+                    <div class="screen-complete__options">
+                        <button class="button--primary" id="complete_new_game">Play again</button>
+                        <button class="button--primary" id="complete_home">Home</button>
+                    </div>
+                </div>
             </section>
         </main>
 

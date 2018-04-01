@@ -7,6 +7,7 @@
 body {
     max-width: 1200px;
     margin: auto;
+    overflow: hidden;
     font-family: Orbitron, sans-serif;
     background: radial-gradient(ellipse at top, #2b5876, #1c1c1c);
 }
@@ -15,6 +16,12 @@ button {
     background: none;
     border: none;
     color: inherit;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 /* ========== UI Components ========== */
@@ -231,13 +238,80 @@ button {
     position: absolute;
     top: 0;
     left: 0;
-    display: none;
+    display: flex;
     width: 100vw;
     height: 100vh;
-    background-color: darkseagreen;
-    color: darkslategray;
+    transform: translateY(100%);
+    text-align: center;
+    background-color: #5db166;
+    color: #333;
 }
 
 .screen-complete.is-open {
-    display: block;
+    transform: translateY(0%);
+    transition: 0.3s;
+}
+
+.screen-complete__body {
+    display: grid;
+    grid-template-rows: 1fr 1.5fr 0.5fr;
+    width: 500px;
+    height: 80vh;
+    margin: auto;
+    background: rgba(255,255,255,0.75);
+    box-shadow: 0 5px 30px -3px rgba(0,0,0,0.7);
+    border-radius: 1em;
+}
+
+.screen-complete__header {
+    display: grid;
+    align-content: center;
+    height: 100%;
+    background-color: #333;
+    color: #d3d3d3;
+    border-radius: 10px 10px 0 0;
+}
+
+.screen-complete__stars {
+    margin-bottom: 0.7em;
+    color: #ffd644;
+}
+
+.screen-complete__stars i {
+    font-size: 3.8em;
+}
+
+.screen-complete__stars i:nth-child(2) {
+    font-size: 4.8em;
+}
+
+.screen-complete__stats {
+    padding: 1em;
+    font-size: 1.4em;
+}
+
+.stats__header {
+    margin-bottom: 1em;
+    padding: 0.5em;
+    text-align: left;
+    border-bottom: 2px solid #333;
+}
+
+.stats__item {
+    margin: 0 8% 2%;
+}
+
+.stats__title,
+.stats__value {
+    display: inline-block;
+    width: 50%;
+    padding: 0.5em;
+}
+
+.stats__value {
+    font-weight: 700;
+    letter-spacing: 3px;
+    background-color: #333;
+    color: #d3d3d3;
+    border-radius: 10px;
 }
