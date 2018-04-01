@@ -3,6 +3,7 @@ const newGameStart = document.getElementById('start_new_game');
 const restartBtn = document.getElementById('restart');
 const deck = document.getElementById('deck');
 const newGameCom = document.getElementById('complete_new_game');
+const homeComplete = document.getElementById('complete_home');
 const movesCounter = document.getElementById('moves_counter');
 const starsCounter = document.getElementById('stars_rating');
 const timerSeconds = document.getElementById('timer_seconds');
@@ -150,6 +151,7 @@ function pairsCheck() {
         document.getElementById('complete_moves').textContent = move;
         document.getElementById('complete_stars').textContent = stars;
         document.getElementById('complete_time').textContent = `${minutes}':${seconds}"`;
+        document.getElementById('complete_stars-icons').innerHTML = starsCounter.innerHTML;
         toggleScreen('screen_complete', 'is-open');
         stopTimer();
         console.log(`${minutes}:${seconds}`);
@@ -210,6 +212,11 @@ restartBtn.addEventListener('click', function() {
 newGameCom.addEventListener('click', function() {
     toggleScreen('screen_complete', 'is-open');
     newGame();
+});
+
+homeComplete.addEventListener('click', function() {
+    toggleScreen('screen_complete', 'is-open');
+    toggleScreen('screen_start', 'is-hidden');
 });
 
 //*** HELPERS - Possibly will change !!!
