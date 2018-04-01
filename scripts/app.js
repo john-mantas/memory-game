@@ -80,22 +80,16 @@ function openedCards(card) {
 
 //Check for matching cards
 function matchCards() {
-    let theyMatch = false;
     if (openCurrent[0].content === openCurrent[1].content) {
-        theyMatch = true;
         correctMatch();
         openCurrent = [];
         move++;
         pairs++;
-        console.log(theyMatch);
     } else {
-        theyMatch = false;
         wrongMatch();
         openCurrent = [];
         move++;
-        console.log(theyMatch);
     }
-    return theyMatch;
 };
 
 //When the cards are matching
@@ -154,7 +148,6 @@ function pairsCheck() {
         document.getElementById('complete_stars-icons').innerHTML = starsCounter.innerHTML;
         toggleScreen('screen_complete', 'is-open');
         stopTimer();
-        console.log(`${minutes}:${seconds}`);
     }
 }
 
@@ -219,7 +212,6 @@ homeComplete.addEventListener('click', function() {
     toggleScreen('screen_start', 'is-hidden');
 });
 
-//*** HELPERS - Possibly will change !!!
 deck.addEventListener('click', function(event) {
     let card = event.target.parentNode;
     if (!card.classList.contains('open')) {
@@ -232,7 +224,6 @@ deck.addEventListener('click', function(event) {
                 starRating();
                 pairsCheck();
             };
-            console.log(openCurrent);
         };
     };
 });
