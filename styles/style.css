@@ -326,3 +326,62 @@ ul {
     color: #d3d3d3;
     border-radius: 10px;
 }
+
+/* ========== Media Queries ========== */
+/* ----- Small size ----- */
+@media screen and (max-width: 360px) {
+
+    /* ========== Start Screen Section ========== */
+    .content__header {
+        margin-bottom: 100px;
+        font-size: 3em;
+    }
+
+    /* ========== Main Screen Section ========== */
+    .info-section {
+        height: 10vh;
+        grid-template-columns: 1fr 1.25fr 1.25fr 0.5fr;
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
+    }
+
+    .moves-counter,
+    .timer {
+        font-size: 1em;
+    }
+
+    .deck {
+        border-radius: 0;
+    }
+
+    .card__front i {
+        font-size: 3.5em;
+    }
+
+    .card__back {
+        border-width: 5px;
+    }
+
+    /* ========== Complete Screen ========== */
+    .screen-complete__body {
+        height: 100vh;
+        border-radius: 0;
+    }
+
+    .screen-complete__header {
+        border-radius: 0;
+    }
+
+    .screen-complete__header h1 {
+        font-size: 1.5em;
+    }
+
+    .screen-complete__options {
+        align-self: center;
+    }
+
+    .screen-complete .button--primary {
+        padding: 10px 20px;
+    }
+}
