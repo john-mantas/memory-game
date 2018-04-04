@@ -109,6 +109,7 @@ ul {
 .is-hidden {
     transform: translateY(-100%);
     transition: transform 0.3s;
+    transition-delay: 0.5s;
 }
 
 .start-screen__content {
@@ -337,6 +338,7 @@ ul {
 .screen-complete.is-open {
     transform: translateY(0%);
     transition: 0.3s;
+    transition-delay: 1s;
 }
 
 .screen-complete__body {

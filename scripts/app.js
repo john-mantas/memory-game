@@ -175,9 +175,7 @@ function stopTimer() {
 
 //Display/hide a full screen
 function toggleScreen(screenId, isClass) {
-    window.setTimeout(function() {
-        document.getElementById(screenId).classList.toggle(isClass);
-    },1000);
+    document.getElementById(screenId).classList.toggle(isClass);
 }
 
 //Initialize everything and make a new game
