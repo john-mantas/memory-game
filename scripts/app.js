@@ -1,6 +1,8 @@
 let fragment = document.createDocumentFragment();
 const newGameStart = document.getElementById('start_new_game');
+const menuGame = document.getElementById('menu_game');
 const restartBtn = document.getElementById('restart');
+const pauseBtn = document.getElementById('pause');
 const deck = document.getElementById('deck');
 const newGameCom = document.getElementById('complete_new_game');
 const homeComplete = document.getElementById('complete_home');
@@ -15,6 +17,7 @@ let move = 0,
     timer =0,
     seconds = 0,
     minutes = 0;
+let paused = false;
 
 // Initializing cards array with transportation icons
 // cards = [car, motorcycle, boat, airplane, walk, truck, subway, tram]
@@ -192,14 +195,37 @@ function newGame() {
     createDeck(cards);
 };
 
+function playPause() {
+    paused = !paused;
+    if (paused) {
+        stopTimer();
+        deck.classList.add('deck--paused');
+        pauseBtn.innerHTML = "&#xE037";
+    } else {
+        deck.classList.remove('deck--paused');
+        startTimer();
+        pauseBtn.innerHTML = "&#xE034;";
+    }
+};
+
 //Buttons event listeners
 newGameStart.addEventListener('click', function() {
     toggleScreen('screen_start', 'is-hidden');
     newGame();
 });
 
+menuGame.addEventListener('click', function(event) {
+    menuGame.nextElementSibling.classList.toggle('is-open');
+});
+
 restartBtn.addEventListener('click', function() {
     newGame();
+    menuGame.nextElementSibling.classList.toggle('is-open');
+});
+
+pauseBtn.addEventListener('click', function() {
+    playPause();
+    menuGame.nextElementSibling.classList.toggle('is-open');
 });
 
 newGameCom.addEventListener('click', function() {
