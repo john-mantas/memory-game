@@ -1,5 +1,7 @@
 let fragment = document.createDocumentFragment();
 const newGameStart = document.getElementById('start_new_game');
+const startAbout = document.getElementById('start_about');
+const aboutClose = document.getElementById('modal_about_close');
 const menuGame = document.getElementById('menu_game');
 const restartBtn = document.getElementById('restart');
 const pauseBtn = document.getElementById('pause');
@@ -212,6 +214,14 @@ function playPause() {
 newGameStart.addEventListener('click', function() {
     toggleScreen('screen_start', 'is-hidden');
     newGame();
+});
+
+startAbout.addEventListener('click', function() {
+    toggleScreen('modal_about', 'is-open');
+});
+
+aboutClose.addEventListener('click', function() {
+    toggleScreen('modal_about', 'is-open');
 });
 
 menuGame.addEventListener('click', function(event) {
