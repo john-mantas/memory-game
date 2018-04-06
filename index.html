@@ -5,9 +5,9 @@
         <title>Memory Game</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="styles/normalize.css" rel="stylesheet">
-        <link href="styles/style.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada|Orbitron" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="styles/style.css" rel="stylesheet">
     </head>
 
     <body>
@@ -23,7 +23,7 @@
             <section class="modal-about" id="modal_about">
                 <i class="material-icons button--icon modal-about__close" id="modal_about_close">&#xE5CD;</i>
                 <div class="modal-about__contents">
-                    <p>Made with <span style="color: firebrick">❤</span> by John Mantas.</p>
+                    <p>Made with <span style="color: b22222">❤</span> by John Mantas.</p>
                     <p>Project from Udacity Fend Nanodegree.</p>
                     <p>2018 @ Athens, Greece</p>
                 </div>
@@ -37,9 +37,7 @@
                     <i class="material-icons">&#xE838;</i>
                     <i class="material-icons">&#xE838;</i>
                 </div>
-                <div class="moves-counter">
-                    <p><span id="moves_counter">0</span> Moves</p>
-                </div>
+                <p class="moves-counter"><span id="moves_counter">0</span> Moves</p>
                 <p class="timer"><span id="timer_minutes">00</span>:<span id="timer_seconds">00</span></p>
                 <div class="screen-game__options">
                     <button class="menu-game" id="menu_game"><i class="material-icons button--icon">&#xE5D2;</i></button>
@@ -49,38 +47,37 @@
                     </ul>
                 </div>
             </aside>
-            <div class="deck deck--4x4" id="deck">
-
-            </div>
-            <section class="screen-complete" id="screen_complete">
-                <div class="screen-complete__body">
-                    <div class="screen-complete__header">
-                        <div class="screen-complete__stars" id="complete_stars-icons">
-                            <i class="material-icons">&#xE838;</i>
-                            <i class="material-icons">&#xE838;</i>
-                            <i class="material-icons">&#xE83A;</i>
-                        </div>
-                        <h1>HOORAY! YOU WON!</h1>
-                    </div>
-                    <ul class="screen-complete__stats">
-                        <h3 class="stats__header">Your stats...</h3>
-                        <li class="stats__item">
-                            <span class="stats__title">Moves: </span><span class="stats__value" id="complete_moves">0</span>
-                        </li>
-                        <li class="stats__item">
-                            <span class="stats__title">Time: </span><span class="stats__value" id="complete_time">00:00</span>
-                        </li>
-                        <li class="stats__item">
-                            <span class="stats__title">Stars: </span><span class="stats__value" id="complete_stars">0</span>
-                        </li>
-                    </ul>
-                    <div class="screen-complete__options">
-                        <button class="button--primary" id="complete_new_game">Play again</button>
-                        <button class="button--primary" id="complete_home">Home</button>
-                    </div>
-                </div>
-            </section>
+            <div class="deck deck--4x4" id="deck"></div>
         </main>
+
+        <section class="screen-complete" id="screen_complete">
+            <div class="screen-complete__body">
+                <div class="screen-complete__header">
+                    <div class="screen-complete__stars" id="complete_stars-icons">
+                        <i class="material-icons">&#xE838;</i>
+                        <i class="material-icons">&#xE838;</i>
+                        <i class="material-icons">&#xE83A;</i>
+                    </div>
+                    <h1>HOORAY! YOU WON!</h1>
+                </div>
+                <ul class="screen-complete__stats">
+                    <h3 class="stats__header">Your stats...</h3>
+                    <li class="stats__item">
+                        <span class="stats__title">Moves: </span><span class="stats__value" id="complete_moves">0</span>
+                    </li>
+                    <li class="stats__item">
+                        <span class="stats__title">Time: </span><span class="stats__value" id="complete_time">00:00</span>
+                    </li>
+                    <li class="stats__item">
+                        <span class="stats__title">Stars: </span><span class="stats__value" id="complete_stars">0</span>
+                    </li>
+                </ul>
+                <div class="screen-complete__options">
+                    <button class="button--primary" id="complete_new_game">Play again</button>
+                    <button class="button--primary" id="complete_home">Home</button>
+                </div>
+            </div>
+        </section>
 
         <script src="scripts/app.js"></script>
     </body>
