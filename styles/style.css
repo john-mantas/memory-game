@@ -6,6 +6,7 @@
 
 body {
     max-width: 1200px;
+    min-height: 100vh;
     margin: auto;
     overflow: hidden;
     font-family: Orbitron, sans-serif;
@@ -28,11 +29,9 @@ ul {
 /* ----- Buttons ----- */
 .button--primary {
     position: relative;
-    display: inline;
     margin-bottom: 0.5em;
     padding: 10px 30px;
     font-size: 1.6em;
-    font-family: Orbitron;
     letter-spacing: 1.2px;
     text-shadow: 2px 3px 9px #1c1c1c;
     cursor: pointer;
@@ -94,13 +93,13 @@ ul {
 }
 /* ========== Start Screen Section ========== */
 .start-screen {
-    display: flex;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    z-index: 9999;
+    display: flex;
+    z-index: 100;
     background: linear-gradient(45deg, #2b5876, #4e4376);
     color: #fafafa;
     text-align: center;
@@ -113,7 +112,6 @@ ul {
 }
 
 .start-screen__content {
-    display: inline-block;
     margin: auto;
 }
 
@@ -172,22 +170,20 @@ ul {
     border-bottom: 2px dashed #2b5876;
 }
 
-/* ========== Main container ========== */
-
+/* ========== Main Game Screen Section ========== */
 .container {
     max-width: 43em;
     margin: auto;
 }
 
-/* ========== Info Section ========== */
-
+/* ----- Info Section ----- */
 .info-section {
     display: grid;
     width: 100%;
     height: 5vh;
     grid-template-columns: repeat(4, 1fr);
     align-items: center;
-    margin: 0 auto 2.5vh;
+    margin-bottom: 2.5vh;
     padding: 0 1em;
     text-align: center;
     background-color: #31333b;
@@ -218,15 +214,13 @@ ul {
     display: inline;
 }
 
-/* ========== Deck ========== */
-
+/* ----- Deck ----- */
 .deck {
     position: relative;
-    display: grid;
-    grid-gap: 2%;
     width: 100%;
     height: 90vh;
-    margin: auto;
+    display: grid;
+    grid-gap: 2%;
     padding: 1em;
     background: rgba(255,255,255,0.1);
     box-shadow: 0 0 30px -7px #1c1c1c;
@@ -239,23 +233,22 @@ ul {
 
 .deck--paused:after {
     position: absolute;
-    display: grid;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    display: grid;
+    align-content: center;
     content: "Pause";
     font-size: 3em;
     text-align: center;
-    align-content: center;
+    color: #d3d3d3;
     text-shadow: 1px 1px 3px #000;
     background: radial-gradient(circle at center, #2b5876, #1c1c1c);
-    color: #d3d3d3;
     border-radius: 10px;
 }
 
-/* ========== Cards ========== */
-
+/* ----- Cards ----- */
 .card {
     position: relative;
     width: 100%;
@@ -320,19 +313,18 @@ ul {
     animation-delay: 0.3s;
 }
 
-/* ========== Complete Screen ========== */
-
+/* ========== Complete Screen Section ========== */
 .screen-complete {
     position: absolute;
     top: 0;
     left: 0;
-    display: flex;
     width: 100vw;
     height: 100vh;
-    transform: translateY(100%);
+    display: flex;
     text-align: center;
-    background-color: #5db166;
+    transform: translateY(100%);
     color: #333;
+    background-color: #5db166;
 }
 
 .screen-complete.is-open {
@@ -352,6 +344,7 @@ ul {
     border-radius: 1em;
 }
 
+/* ----- Top header section ----- */
 .screen-complete__header {
     display: grid;
     align-content: center;
@@ -374,6 +367,7 @@ ul {
     font-size: 4.8em;
 }
 
+/* ----- Game Stats Section ----- */
 .screen-complete__stats {
     padding: 1em;
     font-size: 1.4em;
@@ -415,7 +409,7 @@ ul {
         font-size: 3em;
     }
 
-    /* ========== Main Screen Section ========== */
+    /* ========== Main Game Screen Section ========== */
     .info-section {
         height: 10vh;
         grid-template-columns: 1fr 1.25fr 1.25fr 0.5fr;
@@ -435,9 +429,8 @@ ul {
 
     .menu-game__options {
         position: absolute;
-        top: 100%;
         right: 0;
-        z-index: 1;
+        z-index: 10;
         transform: scale(0);
         transform-origin: top;
         background-color: #31333b;
