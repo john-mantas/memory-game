@@ -227,6 +227,9 @@ menuGame.addEventListener('click', function(event) {
 });
 
 restartBtn.addEventListener('click', function() {
+    if (paused) {
+        deck.classList.remove('deck--paused');
+    }
     newGame();
     menuGame.nextElementSibling.classList.toggle('is-open');
 });
