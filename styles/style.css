@@ -163,6 +163,11 @@ ul {
     color: #d3d3d3;
 }
 
+.contents__header {
+    margin-bottom: 2.5em;
+    text-transform: uppercase;
+}
+
 .modal-about__contents p {
     margin-bottom: 2em;
     padding: 0.5em;
