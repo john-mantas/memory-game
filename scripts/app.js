@@ -126,15 +126,12 @@ function movesCount(m) {
 
 //Star rating
 function starRating() {
-    if (move >= 50) {
-        starsCounter.firstElementChild.innerHTML = '&#xE83A;';
-        stars =0;
-    } else if (move >= 26) {
+    if (move >= 26) {
         starsCounter.firstElementChild.nextElementSibling.innerHTML = '&#xE83A;';
-        stars =1;
+        stars = 1;
     } else if (move >= 16) {
         starsCounter.lastElementChild.innerHTML = '&#xE83A;';
-        stars =2;
+        stars = 2;
     } else {
         stars = 3;
     }
@@ -142,7 +139,7 @@ function starRating() {
 
 function restartStars() {
     let starItems = starsCounter.children;
-    for (let i = 0; i < starItems.length; i++) {
+    for (let i = 1; i < starItems.length; i++) {
         starItems[i].innerHTML = '&#xE838;';
     }
 }
