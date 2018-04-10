@@ -21,11 +21,18 @@ let move = 0,
     minutes = 0;
 let paused = false;
 
+/**
+* @constant {array} cards
+*/
 // Initializing cards array with transportation icons
 // cards = [car, motorcycle, boat, airplane, walk, truck, subway, tram]
 const cards = ['&#xE531;', '&#xE91B;', '&#xE532;', '&#xE195;', '&#xE536;', '&#xE558;', '&#xE56F;', '&#xE571;', '&#xE531;', '&#xE91B;', '&#xE532;', '&#xE195;', '&#xE536;', '&#xE558;', '&#xE56F;', '&#xE571;'];
 
-// Shuffle function from http://stackoverflow.com/a/2450976
+/**
+* @description Shuffle function from http://stackoverflow.com/a/2450976
+* @param {Array} array - Array containing the cards icons
+* @returns {Array} - Shuffled array of the cards icons 
+*/
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
     while (currentIndex !== 0) {
@@ -38,7 +45,9 @@ function shuffle(array) {
     return array;
 }
 
-//Creating the html for the entire deck
+/**
+* @description Creating the html for the entire deck
+*/
 function createDeck() {
     deck.innerHTML = '';
     let cardCollection = shuffle(cards);
@@ -63,14 +72,19 @@ function createDeck() {
     startTimer();
 }
 
-//Flip the card
+/**
+* @description Flip the card
+*/
 function flipCard(card) {
     if (card.classList.contains('card')) {
         card.classList.toggle('open');
     }
 }
 
-//Adding which cards are open
+/**
+* @description Adding which cards are open
+* @param {node} card - Card element
+*/
 function openedCards(card) {
     let cardSum = {
         id: 0,
@@ -83,7 +97,9 @@ function openedCards(card) {
     } 
 }
 
-//Check for matching cards
+/**
+* @description Check for matching cards
+*/
 function matchCards() {
     if (openCurrent[0].content === openCurrent[1].content) {
         correctMatch();
@@ -100,14 +116,18 @@ function matchCards() {
     }
 }
 
-//When the cards are matching
+/**
+* @description When the cards are matching
+*/
 function correctMatch() {
     for (let i=0;i<openCurrent.length;i++) {
         document.getElementById(openCurrent[i].id).classList.add('match');
     }
 }
 
-//When the cards don't match
+/**
+* @description When the cards don't match
+*/
 function wrongMatch() {
     for (let i=0;i<openCurrent.length;i++) {
         let wrongCard = document.getElementById(openCurrent[i].id);
@@ -119,12 +139,17 @@ function wrongMatch() {
     }
 }
 
-//Moves Counter
+/**
+* @description Moves Counter
+* @param {number} m - Total moves count
+*/
 function movesCount(m) {
     movesCounter.textContent = m;
 }
 
-//Star rating
+/**
+* @description Star rating system
+*/
 function starRating() {
     if (move >= 26) {
         starsCounter.firstElementChild.nextElementSibling.innerHTML = '&#xE83A;';
@@ -144,7 +169,9 @@ function restartStars() {
     }
 }
 
-//Check how many pairs are made
+/**
+* @description Check how many pairs are made
+*/
 function pairsCheck() {
     if (pairs === (cards.length/2)){
         document.getElementById('complete_moves').textContent = move;
@@ -156,7 +183,9 @@ function pairsCheck() {
     }
 }
 
-//Timer
+/**
+* @description Timer handling functions
+*/
 function clock() {
     if (seconds > 59) {
         seconds = 0;
@@ -173,12 +202,18 @@ function stopTimer() {
     clearInterval(timer);
 }
 
-//Display/hide a full screen
+/**
+* @description Display/hide a full screen
+* @param {string} screenId - The element the function has to select
+* @param {string} isClass - The class the function has to toggle
+*/
 function toggleScreen(screenId, isClass) {
     document.getElementById(screenId).classList.toggle(isClass);
 }
 
-//Initialize everything and make a new game
+/**
+* @description Initialize everything and start a new game
+*/
 function newGame() {
     stopTimer();
     openCurrent = [];
@@ -195,6 +230,9 @@ function newGame() {
     createDeck(cards);
 }
 
+/**
+* @description Pause or continue the game
+*/
 function playPause() {
     paused = !paused;
     if (paused) {
@@ -208,7 +246,7 @@ function playPause() {
     }
 }
 
-//Buttons event listeners
+// Buttons event listeners
 newGameStart.addEventListener('click', function() {
     toggleScreen('screen_start', 'is-hidden');
     newGame();
